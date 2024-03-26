@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="ChatAppGUI.MVVM.View.RegisterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ChatAppGUI.MVVM.View"
+             xmlns:viewModel="clr-namespace:ChatAppGUI.MVVM.ViewModel"
+             xmlns:global="clr-namespace:"
+             mc:Ignorable="d"
+             d:DesignHeight="280" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <global:RegisterControlModel/>
+    </UserControl.DataContext>
+    
+    <Grid> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Rejestracja" FontSize="22" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10"/>
+
+        <TextBlock Grid.Row="1" Text="Nick:" FontSize="17" Foreground="White" Margin="10, 15, 0, 0"/>
+        <TextBox Grid.Row="1" FontSize="17"  Margin="110,10,10,0"/>
+
+        <TextBlock Grid.Row="2" Text="Wiek:" FontSize="17" Foreground="White" Margin="10,15,0,0"/>
+        <TextBox Grid.Row="2" FontSize="17"  Margin="110,10,10,0"/>
+
+        <TextBlock Grid.Row="3" Text="Email:" FontSize="17" Foreground="White" Margin="10,15,0,0"/>
+        <TextBox Grid.Row="3" FontSize="17" Margin="110,10,10,0"/>
+
+        <TextBlock Grid.Row="4" Text="Hasło:" FontSize="17" Foreground="White" Margin="10,15,0,0"/>
+        <PasswordBox Grid.Row="4" FontSize="17" Margin="110,10,10,0"/>
+        
+        <Button Grid.Row="5" Content="Zarejestruj się" HorizontalAlignment="Center" Margin="0,20" Background="#4CAF50" FontSize="22" Foreground="White" Command="{Binding RegisterCommand}"/>
+        
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+            <TextBlock Foreground="White" FontSize="22" Text="Masz już konto?" Margin="0,0,5,0"/>
+            <Button Content="Zaloguj się" Margin="5,0,0,0" Background="#2196F3" FontSize="22" Foreground="White" Command="{Binding LoginCommand}" Click="LoginClick"/> 
+        </StackPanel>
+    </Grid>
+</UserControl>
