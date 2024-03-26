@@ -4,6 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ChatAppGUI.MVVM.Model
 {
@@ -73,14 +74,19 @@ namespace ChatAppGUI.MVVM.Model
             {
                 return false;
             }
-
+            
+            if (!Regex.IsMatch(Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).*$"))
+            {
+                return false;
+            }
+            
             else
             {
                 return true;
             }
         }
 
-        public void EncryptPassword()
+        public void EncryptPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
             {

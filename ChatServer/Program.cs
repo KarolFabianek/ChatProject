@@ -41,4 +41,4 @@ namespace ChatServerWithDatabase
 
 //git add .
 //git commit -a -m "Some changes"
-//git -push 
+//git push -u 
