@@ -19,12 +19,11 @@ public class ClientRegisterPacket : IPacket
         _login = "";
         _password = "";
         _email = "";
-        _age = 0;
     }
 
     public byte PackedId()
     {
-        return 0x06;
+        return 0x07;
     }
 
     public PacketDirection Direction()
