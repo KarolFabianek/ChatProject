@@ -34,7 +34,40 @@ namespace ChatServer
             _packetManager.RegisterHandler<Handshake>(0x00, HandleHandshake);
             _packetManager.RegisterPacket<ClientMessagePacket>(0x01);
             _packetManager.RegisterHandler<ClientMessagePacket>(0x01, HandleClientMessagePacket);
+            // _packetManager.RegisterPacket<ClientRegisterPacket>(0x07);
+            // _packetManager.RegisterHandler<ClientRegisterPacket>(0x07, HandleClientRegisterPacket);
+            // _packetManager.RegisterPacket<ClientLoginRequest>(0x05);
+            // _packetManager.RegisterHandler<ClientLoginRequest>(0x05, HandleClientLoginRequest);
+            
         }
+
+        // public void HandleClientRegisterPacket(ClientRegisterPacket clientRegisterPacket, EventArgs eventArgs)
+        // {
+        //     Console.WriteLine($"Rejestracja: {_id}");
+        //     
+        //     var registrationSuccessPacket = new ClientLoginRespond
+        //     {
+        //         Id = Guid.NewGuid(), 
+        //         Nickname = "AntekKOc", 
+        //         Secret = "Rejestracja udana" 
+        //     };
+        //
+        //     _server.SendPacket(registrationSuccessPacket, _id);
+        // }
+        //
+        // public void HandleClientLoginRequest(ClientLoginRequest clientLoginRequest, EventArgs eventArgs)
+        // {
+        //     Console.WriteLine($"Received login request for user: {_id}");
+        //
+        //     var loginSuccessPacket = new ClientLoginRespond
+        //     {
+        //         Id = _id, 
+        //         Nickname = "Kazik", 
+        //         Secret = "Zalogowany" ;
+        //
+        //     _server.SendPacket(loginSuccessPacket, _id);
+        // }
+        //
 
         public void HandleHandshake(Handshake handshake, EventArgs eventArgs)
         {

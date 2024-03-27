@@ -13,58 +13,7 @@ public class RegisterControlModel : INotifyPropertyChanged
     {
         
     }
-    // public RegisterControlModel()
-    // {
-    //     RegisterCommand = new RelayCommand(Register);
-    //     LoginCommand = new RelayCommand(Login);
-    // }
-
-    // private void Register(object parameter)
-    // {
-    //     var newUser = (Client)parameter;
-    //
-    //     using (var dbContext = new YourDbContext())
-    //     {
-    //         // Sprawdzamy, czy użytkownik już istnieje w bazie danych
-    //         var existingUser = dbContext.Users.FirstOrDefault(u => u.Username == newUser.Username);
-    //
-    //         if (existingUser != null)
-    //         {
-    //             // Jeśli użytkownik już istnieje, możemy obsłużyć ten przypadek
-    //             // Na przykład możemy zwrócić komunikat o błędzie lub podjąć inną akcję
-    //             // w zależności od potrzeb
-    //             Console.WriteLine("Użytkownik o podanej nazwie już istnieje.");
-    //             return;
-    //         }
-    //
-    //         // Jeśli użytkownik nie istnieje, możemy go dodać do bazy danych
-    //         dbContext.Users.Add(newUser);
-    //         dbContext.SaveChanges();
-    //
-    //         Console.WriteLine("Użytkownik został zarejestrowany.");
-    //     }
-    // }
-    //
-    // private void Login(object parameter)
-    // {
-    //     var loginData = (LoginData)parameter;
-    //
-    //     using (var dbContext = new YourDbContext())
-    //     {
-    //         var client = dbContext.Users.FirstOrDefault(c => c.Nick == loginData.Nick && c.Haslo == loginData.Haslo);
-    //
-    //         if (client != null)
-    //         {
-    //             Console.WriteLine("Zalogowano pomyślnie.");
-    //         }
-    //         else
-    //         {
-    //             Console.WriteLine("Błąd logowania. Sprawdź nazwę użytkownika i hasło.");
-    //         }
-    //     }
-    // }
-
-
+    
     public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)

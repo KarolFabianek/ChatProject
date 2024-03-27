@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using ChatProtocol.Packets;
 using ChatServer;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
@@ -12,6 +13,7 @@ namespace ChatServerWithDatabase
 {
     class Program
     {
+        public ClientRegisterPacket RegisterData;
         public static readonly string DATABASE_CONNECTION_STRING = @"server=mail.paulek.pro;port=3306;userid=karol;password=123456;database=karol";
         
         public static async Task Main(string[] args)
@@ -24,37 +26,31 @@ namespace ChatServerWithDatabase
             
         }
 
+        //string email,string password,string nickname,Guid id,int age
         public static async Task ConnectToDatabaseAsync()
         {
             using (var connection = new MySqlConnection(DATABASE_CONNECTION_STRING)) 
             {
-                // try
-                // {
-                //     connection.Open();
-                //     string exampleSql = "SELECT * FROM clients";
-                //     string insertSql =
-            //         "INSERT INTO Clients (ID,Email,Password,Nickname,Guid_ID, Age) VALUES ('6969696969','MarianPazdzioch@wp.pl','Agata123@$',Fagaciara','69123469','13')";
-                //     var command = new MySqlCommand(exampleSql, connection);
-                //     var reader = command.ExecuteReader();
-                //     while (reader.Read())
-                //     {
-                //         // Client _newClient = new Client(); 
-                //         // Console.WriteLine($"{_newClient.Content}");                        
-                //     }
-                // }
-                // catch (Exception ex) 
-                // {
-                //    Console.WriteLine("Błąd połaczenia z bazą danych!"); 
-                //    return;
-                // }
-                // finally 
-                // {
-                //     if (connection.State != ConnectionState.Closed)
-                //     {
-                //         connection.Close();
-                //     }
-                //     connection.Dispose(); 
-                // }
+                try
+                {
+                    connection.Open();
+                    string insertSql = "INSERT INTO Clients (Email,Password,Nickname,Guid_ID, Age) VALUES ('MarianPazdzioch@wp.pl','Agata123@$','Fagaciara','69123469','13')";
+                    var command = new MySqlCommand(insertSql, connection);
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex) 
+                {
+                   Console.WriteLine("Błąd połaczenia z bazą danych! {0}", ex); 
+                   return;
+                }
+                finally 
+                {
+                    if (connection.State != ConnectionState.Closed)
+                    {
+                        connection.Close();
+                    }
+                    connection.Dispose(); 
+                }
             }
         }
         

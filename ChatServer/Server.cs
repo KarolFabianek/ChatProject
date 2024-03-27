@@ -5,6 +5,7 @@ using DotNetty.Transport.Channels;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using ChatProtocol;
+using ChatProtocol.Packets;
 using ChatProtocol.Writer;
 using DotNetty.Handlers.Tls;
 using Org.BouncyCastle.Bcpg;
@@ -104,5 +105,6 @@ namespace ChatServer
             get { return _receivedMessageHistory; }  // getter taki jak lubi paweł
             set { _receivedMessageHistory = value; }  // setter taki jak lubi paweł
         }
+        
     }
 }
