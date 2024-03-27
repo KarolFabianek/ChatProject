@@ -102,8 +102,8 @@ namespace ChatServer
         
         public List<string> ReceivedMessageHistory
         {
-            get { return _receivedMessageHistory; }  // getter taki jak lubi paweł
-            set { _receivedMessageHistory = value; }  // setter taki jak lubi paweł
+            get { return _receivedMessageHistory; }  
+            set { _receivedMessageHistory = value; } 
         }
         
     }
