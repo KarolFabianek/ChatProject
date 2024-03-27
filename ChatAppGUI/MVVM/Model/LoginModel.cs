@@ -90,7 +90,7 @@ namespace ChatAppGUI.MVVM.Model
         {
             using (SHA256 sha256 = SHA256.Create())
             {
-                byte[] bytes = Encoding.UTF8.GetBytes(Password);
+                byte[] bytes = Encoding.UTF8.GetBytes(password);
                 byte[] hash = sha256.ComputeHash(bytes);
                 Password = BitConverter.ToString(hash).Replace("-", "").ToLower();
             }
