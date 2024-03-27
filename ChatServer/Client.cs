@@ -26,7 +26,12 @@ public class Client
         _handler = handler;
         _id = Guid.NewGuid();
     }
-    
+
+    public Client()
+    {
+ 
+    }
+
     public Guid Id
     {
         get { return _id; }

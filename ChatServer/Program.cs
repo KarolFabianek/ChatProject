@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Data;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using ChatServer;
+using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 
 namespace ChatServerWithDatabase
@@ -21,53 +23,76 @@ namespace ChatServerWithDatabase
             //await ConnectToDatabaseAsync();
             
         }
-        
+
         public static async Task ConnectToDatabaseAsync()
         {
-            try
+            using (var connection = new MySqlConnection(DATABASE_CONNECTION_STRING)) 
             {
-                using (MySqlConnection connection = new MySqlConnection(DATABASE_CONNECTION_STRING))
-                {
-                    await connection.OpenAsync();
-                    Console.WriteLine("Udało się połączyć z bazą danych!");
-                        connection.Open();
-                        string insertQuery = "INSERT INTO users (nickname, password) VALUES (@nickname, @password)";
-                        MySqlCommand command = new MySqlCommand(insertQuery, connection);
-                        command.Parameters.AddWithValue("@nickname", "user123");
-                        command.Parameters.AddWithValue("@password", "hashed_password"); 
-                        command.ExecuteNonQuery();
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Błąd podczas łączenia z bazą danych: {ex.Message}");
+                // try
+                // {
+                //     connection.Open();
+                //     string exampleSql = "SELECT * FROM clients";
+                //     string insertSql =
+            //         "INSERT INTO Clients (ID,Email,Password,Nickname,Guid_ID, Age) VALUES ('6969696969','MarianPazdzioch@wp.pl','Agata123@$',Fagaciara','69123469','13')";
+                //     var command = new MySqlCommand(exampleSql, connection);
+                //     var reader = command.ExecuteReader();
+                //     while (reader.Read())
+                //     {
+                //         // Client _newClient = new Client(); 
+                //         // Console.WriteLine($"{_newClient.Content}");                        
+                //     }
+                // }
+                // catch (Exception ex) 
+                // {
+                //    Console.WriteLine("Błąd połaczenia z bazą danych!"); 
+                //    return;
+                // }
+                // finally 
+                // {
+                //     if (connection.State != ConnectionState.Closed)
+                //     {
+                //         connection.Close();
+                //     }
+                //     connection.Dispose(); 
+                // }
             }
         }
         
-        public static async Task<bool> ValidateCredentialsAsync(string nickname, string password)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(DATABASE_CONNECTION_STRING))
-                {
-                    await connection.OpenAsync();
-                    string query = "SELECT COUNT(*) FROM users WHERE nickname = @nickname AND password = @password";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@nickname", nickname);
-                    command.Parameters.AddWithValue("@password", password);
-                    
-                    int count = Convert.ToInt32(await command.ExecuteScalarAsync());
-                    
-                    return count > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Błąd weryfikacji danych w bazie danych: {ex.Message}");
-                return false;
-            }
-        }
+        
+        
+        
+        
+        // using (var connection = new MySqlConnection(DATABASE_CONNECTION_STRING)) //do () mozesz odwolac sie tylko w klamrach usinga
+        // {
+        //     try
+        //     {
+        //         connection.Open();
+        //         Logger.Log(LogLevel.Info, $"Saving message {message.Id.ToString()} to database");
+        //         string insertSql = $"INSERT INTO karol.messages (discord_id,author_id,author_name,content,guild_id) VALUES ('{e.Message.Id.ToString()}', '{e.Message.Author.Id.ToString()}', '{e.Author.Username}','{e.Message.Content}','{e.Guild.Id.ToString()}')";
+        //         var command = new MySqlCommand(insertSql, connection);
+        //         int rowsEffectedcommand = command.ExecuteNonQuery();     
+        //         if (rowsEffectedcommand < 1)
+        //         {
+        //             Logger.Log(LogLevel.Error, $"Error while saving message {message.Id.ToString()} to database");
+        //         }
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         Logger.Log(LogLevel.Error, $"Error while Maryla Learning: {ex.Message}", ex);
+        //         return;
+        //     }
+        //     finally
+        //     {
+        //         if (connection.State != ConnectionState.Closed)
+        //         {
+        //             connection.Close();
+        //         }
+        //         connection.Dispose(); //upewnia sie czy cala pamiec zostanie wyzerowana
+        //     }
+        // }
+        
+        
+        
         
         
     }
