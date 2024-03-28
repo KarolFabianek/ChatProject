@@ -6,9 +6,6 @@ using ChatClient;
 
 public class RegisterControlModel : INotifyPropertyChanged
 {
-    public ICommand RegisterCommand { get; private set; }
-    public ICommand LoginCommand { get; private set; }
-
     public RegisterControlModel()
     {
         

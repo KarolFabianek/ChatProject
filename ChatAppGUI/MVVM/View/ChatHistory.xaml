@@ -19,8 +19,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-            <TextBlock Text="{Binding UserName}" FontSize="16" FontWeight="Bold" Margin="0 0 30 0"/>
-            <Button Content="Opusc Historie Chatu" Command="{Binding LogoutCommand}" FontSize="14" Background="Red" Click="LeaveButton"/>
+                <TextBlock Text="{Binding UserName}" FontSize="16" FontWeight="Bold" Margin="0 0 20 0"/>
+                <Slider x:Name="starSlider" Width="75" Minimum="0" Maximum="5" TickFrequency="1" IsSnapToTickEnabled="True" Margin="0,0,20,0"/>
+                <Button Background="Blue" Content="Oceń stronę" Click="RateButton_Click"/>
         </StackPanel>
 
         <ListBox Grid.Row="1" ItemsSource="{Binding Messages}" Margin="17,0,17,20" Background="White" Width="750">

@@ -21,6 +21,6 @@ public class MainWindowModel : ObservableObject
 
     public MainWindowModel()
     {
-        CurrentViewModel = new ChatHistoryModel();
+        CurrentViewModel = new ChatStartView();
     }
 }

@@ -11,13 +11,37 @@ public partial class ChatHistory
         InitializeComponent();
     }
     
-    private void LeaveButton(object sender, RoutedEventArgs e)
+    private void RateButton_Click(object sender, RoutedEventArgs e)
     {
-        var mainWindow = Application.Current.MainWindow;
-            
-        if (mainWindow.DataContext is MainWindowModel mainViewModel)
+        int stars = (int)starSlider.Value;
+        if (stars == 0)
         {
-            mainViewModel.CurrentViewModel = new ChatViewModel();
+            MessageBox.Show("Oceniono stronę na " + stars.ToString() + " gwiazdek - zostań jeszcze chwile przekonamy Cie ze jest spoko");
+        }
+        
+        if (stars == 1)
+        {
+            MessageBox.Show("Oceniono stronę na " + stars.ToString() + " gwiazdek - Jeden to nasz numer w rankingu Chatów w Polsce. Napewno zle kliknales!");
+        }
+        
+        if (stars == 2)
+        {
+            MessageBox.Show("Oceniono stronę na " + stars.ToString() + " gwiazdek - 2 to bedziesz mial z egzaminu jak nas tak ocenisz");
+        }
+        
+        if (stars == 3)
+        {
+            MessageBox.Show("Oceniono stronę na " + stars.ToString() + " gwiazdek - Jest 3 jest stabilnie");
+        }
+        
+        if (stars == 4)
+        {
+            MessageBox.Show("Oceniono stronę na " + stars.ToString() + " gwiazdek - Za słabo przeciagnales, jeszcze troche w prawo");
+        }
+        
+        if (stars == 5)
+        {
+            MessageBox.Show("Oceniono stronę na " + stars.ToString() + " gwiazdek - Jestes Prezesem, witamy w naszym elitarnym gronie");
         }
     }
 }

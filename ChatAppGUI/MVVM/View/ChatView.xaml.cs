@@ -27,7 +27,7 @@ public ChatView()
 
         if (mainWindow.DataContext is MainWindowModel mainViewModel)
         {
-            mainViewModel.CurrentViewModel = new ChatStartView();
+            mainViewModel.CurrentViewModel = new ChatHistory();
         }
     }
 
@@ -76,7 +76,7 @@ public ChatView()
 
         string fullMessage = $"[{nickname}]: {message}";
 
-        //model.Message.Add(new ContextModel(nickname, DateTime.Now, message));
+        // model.Message.Add(new ContextModel(nickname, DateTime.Now, message));
         _client.ClientHandler.SendMessage(message);
 
         MessageTextBox.Text = "";

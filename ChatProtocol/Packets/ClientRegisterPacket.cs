@@ -6,12 +6,12 @@ namespace ChatProtocol.Packets;
 
 public class ClientRegisterPacket : IPacket
 {
-    private string _login;
-    private string _password;
-    private Guid _id;
-    private string _nickname;
-    private int _age;
-    private string _email;
+    public string _login;
+    public string _password;
+    public Guid _id;
+    public string _nickname;
+    public int _age;
+    public string _email;
     
     
     public void Dispose()

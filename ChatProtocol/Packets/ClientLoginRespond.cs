@@ -5,9 +5,9 @@ namespace ChatProtocol.Packets;
 
 public class ClientLoginRespond : IPacket
 {
-    private Guid _id;
-    private string _secret;
-    private string _nickname;
+    public Guid _id { get; set; }
+    public string _secret { get; set; }
+    public string _nickname { get; set; }
 
     public void Dispose()
     {

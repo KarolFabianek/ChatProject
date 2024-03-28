@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,6 +12,8 @@ namespace ChatAppGUI.MVVM.Model
         private string _username;
         private string _password;
         private bool _rememberMe;
+        private int _age;
+        private string _email;
 
         public string Username
         {
@@ -53,6 +54,32 @@ namespace ChatAppGUI.MVVM.Model
             }
         }
 
+        public int Age
+        {
+            get { return _age; }
+            set
+            {
+                if (_age != value)
+                {
+                    _age = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string Email
+        {
+            get { return _email; }
+            set
+            {
+                if (_email != value)
+                {
+                    _email = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -60,40 +87,33 @@ namespace ChatAppGUI.MVVM.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         
-        public bool ValidateCredentials()
+        public bool ValidateCredentials(string email, string password, string nickname, int age)
         {
-            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+            if (string.IsNullOrEmpty(nickname) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
                 return false;
             
-            if (Username.Length > 50)
+            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).*$"))
             {
                 return false;
             }
 
-            if (Password.Length < 8 & Password.Length > 50)
+            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 return false;
             }
             
-            if (!Regex.IsMatch(Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).*$"))
-            {
-                return false;
-            }
-            
-            else
-            {
-                return true;
-            }
+            return true;
         }
 
-        public void EncryptPassword(string password)
+        public string EncryptPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
                 byte[] bytes = Encoding.UTF8.GetBytes(password);
                 byte[] hash = sha256.ComputeHash(bytes);
-                Password = BitConverter.ToString(hash).Replace("-", "").ToLower();
+                return BitConverter.ToString(hash).Replace("-", "").ToLower();
             }
         }
+        
     }
 }
