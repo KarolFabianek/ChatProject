@@ -38,7 +38,6 @@ namespace ChatProtocol.Writer
                 _byteBuffer.WriteBytes(raw2.Payload);
             }
         }
-
         public RawPacket PacketToRaw(IPacket packet)
         {
             RawPacket packetToRaw = new RawPacket();

@@ -20,20 +20,25 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
                 <TextBlock Text="{Binding UserName}" FontSize="16" FontWeight="Bold" Margin="0 0 20 0"/>
-                <Slider x:Name="starSlider" Width="75" Minimum="0" Maximum="5" TickFrequency="1" IsSnapToTickEnabled="True" Margin="0,0,20,0"/>
-                <Button Background="Blue" Content="Oceń stronę" Click="RateButton_Click"/>
+                <Slider x:Name="starSlider" Width="75" Minimum="0" Maximum="5" TickFrequency="1" IsSnapToTickEnabled="True" Margin="0,0,0,0"/>
+                <Button Background="Blue" Content="Oceń stronę" Click="RateButton_Click" Margin="0,0,0,0"/>
         </StackPanel>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding Messages}" Margin="17,0,17,20" Background="White" Width="750">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Sender}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Message}" Margin="5"/>
-                        <TextBlock Text="{Binding TimeStamp}" FontStyle="Italic" FontSize="10" Margin="5"/>
+
+
+
+
+                    <StackPanel Grid.Row="1" Margin="17,0,17,20" Background="White" Width="750">
+                         <Label Content="Co powie niemiecki elektryk do przełożonego,gdy jest na słupie?- Ja volt." FontSize="20"/>
+                        <Label Content="Czy wiesz, że Chuck Norris siedzi szybciej niż ty biegasz?" FontSize="20"/>
+                        <Label Content="Jak się nazywa osoba leniwa, która spożywa posiłek? JeLeń" FontSize="20"/>
+                         <Label Content="Gość z wytatuowanym Q na bicepsie?- Kubica" FontSize="20"/>
+                        <Label Content="Jak nazywa się smaczny sprawdzian? Karkówka" FontSize="20"/>
+                         <Label Content="Moja żona dziś zobaczyła pająka i powiedziała, żebym go gdzieś zabrał, &#xA; zamiast zabijać. Zabrałem go na piwo, całkiem spoko gość, powiedział mi,&#xA; że marzy o karierze sieciowca" FontSize="20"/>
+                         <Label Content=" Jasiu dlaczego nie bawisz się już z Kaziem?
+&#xA;Mamo, a czy ty byś chciała się kolegować z kimś kto pali, pije przeklina?
+&#xA;Nie Jasiu.
+&#xA;No widzisz, Kazik też nie chce." FontSize="20"/>
                     </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
     </Grid>
 </UserControl>

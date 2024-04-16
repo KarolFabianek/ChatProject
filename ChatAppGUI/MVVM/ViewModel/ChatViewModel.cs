@@ -35,7 +35,7 @@ namespace ChatAppGUI.MVVM.ViewModel
             
             Information.Add(new ContactModel
             {
-                Nickname = "Magik bedzie",
+                Nickname = "Fabianito",
                 Id = 11212,
                 Information = "Ech"
             });
@@ -64,11 +64,6 @@ namespace ChatAppGUI.MVVM.ViewModel
                 Message = message,
                 Nickname = client.Nickname,
             };
-
-            // if (message.Length == 0)
-            // {
-            //     RemoveChatMessage();
-            // }
             
             client.ClientHandler.SendMessage(message);
             

@@ -17,7 +17,7 @@ namespace ChatServerWithDatabase
         public ClientRegisterPacket RegisterData;
 
         public static readonly string DATABASE_CONNECTION_STRING =
-            @"server=mail.paulek.pro;port=3306;userid=karol;password=123456;database=karol";
+            @"server=100.112.139.15;port=3306;userid=karol;password=123456;database=karol";
 
         public static async Task Main(string[] args)
         {

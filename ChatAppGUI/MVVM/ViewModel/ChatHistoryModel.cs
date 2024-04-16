@@ -74,93 +74,9 @@ namespace ChatAppGUI.MVVM.ViewModel
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-  
+        
+        
 }
-
-// public class ChatHistoryModel : INotifyPropertyChanged
-//     {
-//         private Client _client = ClientFactory.getClientInstance();
-//         public string Nickname { get; set; }
-//         public ObservableCollection<ContextModel> Message { get; set; }
-//         public ObservableCollection<ContactModel> Information { get; set; }
-//         
-//         private string _newMessage;
-//   
-//         public ChatHistoryModel()
-//         {
-//             Nickname = _client.Nickname;
-//               
-//             Message = new ObservableCollection<ContextModel>();
-//             Information = new ObservableCollection<ContactModel>();
-//             
-//         
-//             
-//             Information.Add(new ContactModel
-//             {
-//                 Nickname = "Magik bedzie",
-//                 Id = 15670,
-//                 Information = "Ech"
-//             });
-//         }
-//         
-//   
-//         
-//         public void AddReceivedMessage(string Nickname, DateTime time, string message)
-//         {
-//             Application.Current.Dispatcher.Invoke(() =>
-//             {
-//                 Message.Add(new ContextModel(Nickname, time, message));
-//             });
-//         }
-//         
-//         public void ReceiveMessage(Client client)
-//         {
-//             if (client == null)
-//                 return;
-//   
-//             string message = NewMessage;
-//             string fullMessage = $"[{Nickname}]: {message}";
-//             
-//             var clientMessagePacket = new ClientMessagePacket
-//             {
-//                 Message = message,
-//                 Nickname = client.Nickname,
-//             };
-//   
-//             // if (message.Length == 0)
-//             // {
-//             //     RemoveChatMessage();
-//             // }
-//             
-//             client.ClientHandler.SendMessage(message);
-//             
-//             Message.Add(new ContextModel(Nickname, DateTime.Now, message));
-//             
-//             NewMessage = "";
-//             
-//         }
-//         
-//         public event PropertyChangedEventHandler PropertyChanged;
-//   
-//         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-//         {
-//             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-//         }
-//         
-//         public string NewMessage
-//         {
-//             get { return _newMessage; }
-//             set
-//             {
-//                 if (_newMessage != value)
-//                 {
-//                     _newMessage = value;
-//                     OnPropertyChanged(nameof(NewMessage));
-//                 }
-//             }
-//         }
-//     }
-
 
 
 

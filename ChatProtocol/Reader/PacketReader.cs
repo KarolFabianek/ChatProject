@@ -37,8 +37,7 @@ namespace ChatProtocol.Reader
             {
                 throw new Exception("ID wykracza poza zakres znanych ID");
             }
-
-
+            
             var dataLength = byteBuffer.ReadInt();
             rawPacket.DataLength = dataLength;
             if (rawPacket.DataLength > PacketConstrains.MaxPacketLength)

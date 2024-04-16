@@ -4,8 +4,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock FontSize="18">
                             <Run Text="["/>
                             <Run Text="{Binding Nickname}" FontWeight="Bold"/>
                             <Run Text="]  : "/>
